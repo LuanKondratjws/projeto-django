@@ -16,16 +16,10 @@ Including another URLconf
 from unittest import result
 
 from django.contrib import admin
-from django.http import HttpResponse
-from django.urls import path
-
+from django.urls import include, path
 
 #http request
-def my_view(request):
-    return HttpResponse('response genérico')
-    #http response
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', my_view)
+    path('', include('recipes.urls')),
 ]
